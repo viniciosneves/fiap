@@ -1,12 +1,6 @@
 import { useState } from "react";
 
-function TodoItem({ descricao }) {
-    const [concluida, setConcluida] = useState(false);
-
-    function manipularMudancaEstado() {
-        console.log('mudei')
-        setConcluida(!concluida)
-    }
+function TodoItem({ tarefa, aoAlternarConclusao }) {
 
     return (
         <div>
@@ -14,10 +8,10 @@ function TodoItem({ descricao }) {
                 <input
                     type="checkbox"
                     className="checkbox"
-                    checked={concluida}
-                    onChange={manipularMudancaEstado}
+                    checked={tarefa.concluida}
+                    onChange={aoAlternarConclusao}
                 />
-                {descricao}
+                {tarefa.descricao}
             </label>
         </div>
     );
