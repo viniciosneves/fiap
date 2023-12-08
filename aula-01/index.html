@@ -20,84 +20,12 @@
     <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
 
-        .container {
-            width: 446px;
-            margin: 16px auto;
-            box-sizing: border-box;
-            padding: 16px;
-            background: #FFEAF1;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            min-height: 100vh;
-        }
 
-        .titulo {
-            border-bottom: 1px solid #BCBCBC;
-            padding-bottom: 16px;
-        }
-
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .checkbox {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #000;
-        }
     </style>
 
     <script type="text/babel">
-        function Container({ children }) {
-            return (
-                <section className="container">
-                    {children}
-                </section>
-            )
 
-        }
-        function Titulo({ children }) {
-            return (
-                <h1 className="titulo">
-                    {children}
-                </h1>
-            )
-
-        }
-        function ItemTarefa({ nome }) {
-            return (
-                <div>
-                    <label className="checkbox-container">
-                        <input type="checkbox" className="checkbox" />
-                        {nome}
-                    </label>
-                </div>
-            );
-        }
-
-        function App() {
-            const tarefas = ['Tarefa 1', 'Tarefa 2', 'Tarefa 3'];
-
-            return (
-                <Container>
-                    <Titulo>Tarefas</Titulo>
-                    {tarefas.map((item, index) => (
-                        <ItemTarefa key={index} nome={item} />
-                    ))}
-                </Container>
-            );
-        }
-
-        const elementoAlvo = document.getElementById('root')
-        const root = ReactDOM.createRoot(elementoAlvo);
-        root.render(<App />);
 
     </script>
 </body>
