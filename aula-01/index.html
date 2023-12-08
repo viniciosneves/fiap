@@ -40,7 +40,18 @@
             padding-bottom: 16px;
         }
 
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
 
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+        }
     </style>
 
     <script type="text/babel">
@@ -60,13 +71,26 @@
             )
 
         }
-
+        function ItemTarefa({ nome }) {
+            return (
+                <div>
+                    <label className="checkbox-container">
+                        <input type="checkbox" className="checkbox" />
+                        {nome}
+                    </label>
+                </div>
+            );
+        }
 
         function App() {
+            const tarefas = ['Tarefa 1', 'Tarefa 2', 'Tarefa 3'];
 
             return (
                 <Container>
                     <Titulo>Tarefas</Titulo>
+                    {tarefas.map((item, index) => (
+                        <ItemTarefa key={index} nome={item} />
+                    ))}
                 </Container>
             );
         }
