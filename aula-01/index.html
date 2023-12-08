@@ -34,13 +34,57 @@
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
             min-height: 100vh;
         }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+        }
+
+        .titulo {
+            border-bottom: 1px solid #BCBCBC;
+            padding-bottom: 16px;
+        }
+        
     </style>
 
     <script type="text/babel">
 
-        function TodoItem({ descricao }) {
+        function Titulo({ children }) {
             return (
-                <div>{descricao}</div>
+                <h1 className="titulo">
+                    {children}
+                </h1>
+            )
+        }
+
+        function TodoItem({ descricao }) {
+            const [concluida, setConcluida] = React.useState(false);
+
+            function manipularMudancaEstado() {
+                console.log('mudei')
+                setConcluida(!concluida)
+            }
+
+            return (
+                <div>
+                    <label className="checkbox-container">
+                        <input
+                            type="checkbox"
+                            className="checkbox"
+                            checked={concluida}
+                            onChange={manipularMudancaEstado}
+                        />
+                        {descricao}
+                    </label>
+                </div>
             );
         }
 
@@ -48,12 +92,12 @@
             const tarefas = ["Aprender React", "Revisar JSX", "Construir uma App"];
 
             return (<div className="container">
-                { /* explicaar forEach vs map quando implementar isso */}
-                { /* primeiro vamos de div assim <div key={index}>{tarefa}</div> */}
+
+                <Titulo>Tarefas</Titulo>
+
                 {tarefas.map((tarefa, index) => (
                     <TodoItem key={index} descricao={tarefa} />
                 ))}
-                { /* explicaar key quando implementar o TodoItem */}
 
             </div>)
         }
