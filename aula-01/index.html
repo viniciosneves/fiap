@@ -34,16 +34,27 @@
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
             min-height: 100vh;
         }
-
     </style>
 
     <script type="text/babel">
 
-        function TodoList () {
+        function TodoItem({ descricao }) {
+            return (
+                <div>{descricao}</div>
+            );
+        }
+
+        function TodoList() {
             const tarefas = ["Aprender React", "Revisar JSX", "Construir uma App"];
 
             return (<div className="container">
-                {/* Tarefas vão aparecer aqui */}
+                { /* explicaar forEach vs map quando implementar isso */}
+                { /* primeiro vamos de div assim <div key={index}>{tarefa}</div> */}
+                {tarefas.map((tarefa, index) => (
+                    <TodoItem key={index} descricao={tarefa} />
+                ))}
+                { /* explicaar key quando implementar o TodoItem */}
+
             </div>)
         }
 
