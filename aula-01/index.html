@@ -35,6 +35,11 @@
             min-height: 100vh;
         }
 
+        .titulo {
+            border-bottom: 1px solid #BCBCBC;
+            padding-bottom: 16px;
+        }
+
 
     </style>
 
@@ -47,10 +52,28 @@
             )
 
         }
+        function Titulo({ children }) {
+            return (
+                <h1 className="titulo">
+                    {children}
+                </h1>
+            )
+
+        }
+
+
+        function App() {
+
+            return (
+                <Container>
+                    <Titulo>Tarefas</Titulo>
+                </Container>
+            );
+        }
 
         const elementoAlvo = document.getElementById('root')
         const root = ReactDOM.createRoot(elementoAlvo);
-        root.render(<Container />);
+        root.render(<App />);
 
     </script>
 </body>
